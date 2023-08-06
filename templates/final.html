@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Inline Styles (copied from your original page) -->
+    <style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;  /* Full viewport height */
+        padding: 2rem;
+        background-color: #f8f9fa;
+    }
+
+      .container {
+        width: 65%;
+        max-width: 800px;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+     .user-name-display {
+        padding: 10px;
+        background-color: #2196F3;
+        color: white;
+        border-radius: 5px;
+        font-size: 18px;
+        margin-bottom: 10px;  /* Adding bottom margin */
+      }
+
+    .analysis-content {
+        border: 1px solid #2196F3;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;  /* Adding bottom margin */
+    }
+
+    </style>
+</head>
+
+<body>
+    <!-- Adding fixed elements wrapper for consistent style -->
+    <div class="fixed-elements-wrapper">
+        <!-- Displaying user's name -->
+        <div class="user-name-display">
+            User: {{ first_name }} {{ last_name }}
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Profil utilisateur pour {{ first_name }} {{ last_name }}</h1>
+        
+        <!-- Displaying the analysis -->
+        <div class="analysis-content mb-4">
+            <h2>Analysis</h2>
+            <p>: {{ analysis }}</p>
+        </div>
+        
+        <!-- Displaying the sorted user profile -->
+        <div class="user-profile">
+            <p>User Profile:</p>
+            <ul>
+                {% for item in user_profile %}
+                    <li>{{ item[0] }}: {{ item[1] }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <!-- Add any other content or links you want to show -->
+    </div>
+</body>
+</html>
